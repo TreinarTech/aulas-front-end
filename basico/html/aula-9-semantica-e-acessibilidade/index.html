@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <h1>Estrutura de semântica</h1>
+        <p>HTML5 introduziu elementos semânticos que melhoram a acessibilidade e a compreensão do conteúdo.</p>
+        <h2>Elementos Semânticos</h2>
+        <ul>
+            <li><strong>header:</strong> Define o cabeçalho de uma página ou seção.</li>
+            <li><strong>nav:</strong> Define uma seção de navegação.</li>
+            <li><strong>main:</strong> Define o conteúdo principal do documento.</li>
+            <li><strong>article:</strong> Define um conteúdo independente e autocontido.</li>
+            <li><strong>section:</strong> Define uma seção genérica de conteúdo.</li>
+            <li><strong>aside:</strong> Define conteúdo relacionado, mas não essencial ao conteúdo principal.</li>
+            <li><strong>footer:</strong> Define o rodapé de uma página ou seção.</li>
+            <li><strong>figure:</strong> Define conteúdo ilustrativo, como imagens ou diagramas.</li>
+            <li><strong>figcaption:</strong> Define uma legenda para o elemento <code>figure</code>.</li>
+            <li><strong>time:</strong> Define uma data ou hora.</li>
+            <li><strong>mark:</strong> Define texto destacado.</li>
+            <li><strong>progress:</strong> Define o progresso de uma tarefa.</li>
+            <li><strong>meter:</strong> Define uma medição dentro de um intervalo conhecido</li>
+        </ul>
+
+        <h2>Exemplo de Elementos Semânticos</h2>
+        <header>
+            <h1>Bem-vindo ao nosso site</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#about">Sobre</a></li>
+                    <li><a href="#contact">Contato</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <article>
+                <h2>Artigo 1</h2>
+                <p>Este é o conteúdo do primeiro artigo.</p>
+            </article>
+            <section>
+                <h2>Seção de Destaque</h2>
+                <p>Conteúdo importante desta seção.</p>
+            </section>
+            <aside>
+                <h3>Informações Adicionais</h3>
+                <p>Conteúdo relacionado, mas não essencial.</p>
+            </aside>
+        </main>
+        <footer>
+            <p>&copy; 2023 Meu Site. Todos os direitos reservados.</p>
+        </footer>
+
+        <h2>Exemplo de Elementos de Formulário</h2>
+        <form action="#" method="post">
+            <label for="name">Nome:</label>
+            <input type="text" id="name" name="name" placeholder="Digite seu nome">
+
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" placeholder="Digite seu e-mail">
+
+            <label for="message">Mensagem:</label>
+            <textarea id="message" name="message" placeholder="Digite sua mensagem"></textarea>
+
+            <button type="submit">Enviar</button>
+            <button type="reset">Limpar</button>
+        </form>
+
+        <h2>Exemplo de Elementos de Acessibilidade</h2>
+        <p>Utilize atributos como <code>aria-label</code> e <code>aria-labelledby</code> para melhorar a acessibilidade.</p>
+        <button aria-label="Fechar janela">X</button>
+        <input type="text" aria-labelledby="name-label" id="name-label" name="name" placeholder="Digite seu nome">
+        <p id="name-label">Nome:</p>
+        <button type="button" aria-pressed="false" onclick="this.setAttribute('aria-pressed', this.getAttribute('aria-pressed') === 'true' ? 'false' : 'true')">Alternar</button>
+        <p>Para mais informações sobre acessibilidade, consulte a <a href="https://www.w3.org/WAI/">W3C Web Accessibility Initiative</a>.</p>
+        <script src="" async defer></script>
+    </body>
+</html>

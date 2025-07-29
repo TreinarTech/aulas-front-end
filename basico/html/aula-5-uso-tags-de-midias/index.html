@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Uso de tags mídias</title>
+  </head>
+  <body>
+    <h1>img, audio, video</h1>
+    <p>Veja como usar as tags de mídia em HTML:</p>
+    <h2>Imagem</h2>
+    <img src="https://via.placeholder.com/150" alt="Placeholder Image" />
+    <h3>Atributos da imagem</h3>
+    <ul>
+      <li>src: especifica o caminho da imagem</li>
+      <li>alt: fornece uma descrição alternativa da imagem</li>
+      <li>width: define a largura da imagem</li>
+      <li>height: define a altura da imagem</li>
+      <li>title: exibe um texto ao passar o mouse sobre a imagem</li>
+      <li>loading: controla o carregamento da imagem (lazy, eager)</li>
+      <li>
+        crossorigin: define como o navegador deve lidar com a política de CORS
+      </li>
+      <li>usemap: associa a imagem a um mapa de imagem</li>
+      <li>
+        decoding: especifica como a imagem deve ser decodificada (sync, async,
+        auto)
+      </li>
+      <li>
+        referrerpolicy: define a política de referência ao carregar a imagem
+      </li>
+      <li>fetchpriority: define a prioridade de carregamento da imagem</li>
+      <li>intrinsicsize: define o tamanho intrínseco da imagem</li>
+    </ul>
+    <h2>Áudio</h2>
+    <audio controls>
+      <source
+        src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+        type="audio/mpeg"
+      />
+      Seu navegador não suporta o elemento de áudio.
+    </audio>
+    <h3>Atributos do autio</h3>
+    <ul>
+      <li>controls: exibe os controles de reprodução</li>
+      <li>autoplay: inicia a reprodução automaticamente</li>
+      <li>loop: repete o áudio quando terminar</li>
+      <li>muted: inicia o áudio mudo</li>
+      <li>preload: carrega o áudio antes de ser reproduzido</li>
+    </ul>
+    <h2>Vídeo</h2>
+    <video width="320" height="240" controls>
+      <source
+        src="https://www.w3schools.com/html/mov_bbb.mp4"
+        type="video/mp4"
+      />
+      Seu navegador não suporta o elemento de vídeo.
+    </video>
+    <h3>Atributos do vídeo</h3>
+    <ul>
+      <li>controls: exibe os controles de reprodução</li>
+      <li>autoplay: inicia a reprodução automaticamente</li>
+      <li>loop: repete o vídeo quando terminar</li>
+      <li>muted: inicia o vídeo mudo</li>
+      <li>poster: exibe uma imagem antes do vídeo ser reproduzido</li>
+      <li>preload: carrega o vídeo antes de ser reproduzido</li>
+    </ul>
+  </body>
+</html>

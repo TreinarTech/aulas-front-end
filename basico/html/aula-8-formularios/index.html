@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula sobre formulário</title>
+</head>
+<body>
+    <h1>Inputs</h1>
+    <p>Os inputs são elementos fundamentais em formulários HTML, permitindo a coleta de dados do usuário.</p>
+    <h2>Tipos de Inputs</h2>
+    <ul>
+        <li><strong>text:</strong> Campo de texto simples.</li>
+        <li><strong>password:</strong> Campo para senhas, oculta os caracteres digitados.</li>
+        <li><strong>email:</strong> Campo para endereços de e-mail, valida o formato.</li>
+        <li><strong>number:</strong> Campo para números, permite definir um intervalo.</li>
+        <li><strong>checkbox:</strong> Caixa de seleção, permite múltiplas escolhas.</li>
+        <li><strong>radio:</strong> Botões de opção, permite uma única escolha entre várias opções.</li>
+        <li><strong>submit:</strong> Botão para enviar o formulário.</li>
+        <li><strong>reset:</strong> Botão para limpar os campos do formulário.</li>
+        <li><strong>file:</strong> Campo para upload de arquivos.</li>
+        <li><strong>date:</strong> Campo para seleção de datas.</li>
+        <li><strong>color:</strong> Campo para seleção de cores.</li>
+    </ul>
+    <h2>Exemplo de Inputs</h2>
+    <form action="#" method="post">
+        <label for="username">Usuário:</label>
+        <input type="text" id="username" name="username" placeholder="Digite seu usuário">
+
+        <label for="password">Senha:</label>
+        <input type="password" id="password" name="password" placeholder="Digite sua senha">
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" placeholder="Digite seu e-mail">
+
+        <label for="age">Idade:</label>
+        <input type="number" id="age" name="age" min="0" max="120">
+
+        <label for="subscribe">Inscrever-se:</label>
+        <input type="checkbox" id="subscribe" name="subscribe">
+    </form>
+    <h2>Estrutura básica de um form</h2>
+    <form action="https://www.google.com/search" method="get">
+        <label for="search">Pesquisar no Google:</label>
+        <input type="text" id="search" name="q" placeholder="Digite sua pesquisa aqui">
+        <button type="submit">Pesquisar</button>
+        <button type="reset">Limpar</button>
+    </form>
+</body>
+</html>
