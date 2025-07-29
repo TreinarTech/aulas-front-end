@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula JavaScript - Operadores</title>
+</head>
+<body>
+    <h1>Operadores em JavaScript</h1>
+    <p>Este é um exemplo de como usar operadores em JavaScript.</p>
+    <script>
+        // Operadores Aritméticos
+        let a = 10;
+        let b = 5;
+
+        console.log("Soma:", a + b); // 15
+        console.log("Subtração:", a - b); // 5
+        console.log("Multiplicação:", a * b); // 50
+        console.log("Divisão:", a / b); // 2
+        console.log("Módulo:", a % b); // 0
+
+        // Operadores de Comparação
+        console.log("Igualdade:", a == b); // false
+        console.log("Desigualdade:", a != b); // true
+        console.log("Maior que:", a > b); // true
+        console.log("Menor que:", a < b); // false
+
+        // Operadores Lógicos
+        let x = true;
+        let y = false;
+
+        console.log("AND lógico:", x && y); // false
+        console.log("OR lógico:", x || y); // true
+        console.log("NOT lógico:", !x); // false
+        // Operadores de Atribuição
+        let c = 20;
+        c += 5; // c = c + 5
+        console.log("Atribuição com adição:", c); // 25
+        c -= 5; // c = c - 5
+        console.log("Atribuição com subtração:", c); // 20
+        c *= 2; // c = c * 2
+        console.log("Atribuição com multiplicação:", c); // 40
+        c /= 4; // c = c / 4
+        console.log("Atribuição com divisão:", c); // 10
+        // Operadores de Incremento e Decremento
+        let d = 1;
+        console.log("Incremento:", ++d); // 2
+        console.log("Decremento:", --d); // 1
+        // Operadores Ternários
+        let idade = 18;
+        let podeDirigir = (idade >= 18) ? "Pode dirigir" : "Não pode dirigir";
+        console.log(podeDirigir); // "Pode dirigir"
+        // Operadores de Tipo
+        console.log("Tipo de a:", typeof a); // "number"
+        console.log("Tipo de x:", typeof x); // "boolean"
+        console.log("Tipo de podeDirigir:", typeof podeDirigir); // "string"
+    </script>
+</body>
+</html>
