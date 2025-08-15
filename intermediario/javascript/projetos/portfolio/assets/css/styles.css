@@ -1,0 +1,460 @@
+*{
+  box-sizing: border-box;
+  font-size: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+a, a:hover{
+  text-decoration: none;
+}
+
+audio, canvas, iframe, img, svg, video {
+  display: inline-block;
+}
+
+audio, canvas, iframe, video {
+  width: 100%;
+}
+
+/*grids*/
+.container{
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .container{
+    margin: 0 auto;
+    width: 750px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container{
+    margin: 0 auto;
+    width: 970px;
+  }
+}
+  
+@media (min-width: 1200px) {
+  .container{
+    margin: 0 auto;
+    width: 1170px;
+  }
+}
+  
+.row{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+@media(min-width: 768px){
+  .row{
+    flex-direction: row;
+    align-items: center;
+  }
+}
+[class*='col-']{
+  padding: 1rem;
+}
+
+@media(min-width: 992px){
+  .col-1{
+    width: 8.333333333333334%;
+  }
+
+  .col-2{
+    width: 16.666666666666668%;
+  }
+  .col-3{
+    width: 25%;
+  }
+  .col-4{
+    width: 33.333333333333336%;
+  }
+  .col-5{
+    width: 41.66666666666667%;
+  }
+  .col-6{
+    width: 50%;
+  }
+  .col-7{
+    width: 58.333333333333336%;
+  }
+  .col-8{
+    width: 66.66666666666667%;
+  }
+  .col-9{
+    width: 75%;
+  }
+  .col-10{
+    width: 83.33333333333333%;
+  }
+  .col-11{
+    width: 91.66666666666667%;
+  }
+  .col-12{
+    width: 100%;
+  }
+}
+
+/*topo*/
+.topo{
+  background-color: #222;
+}
+.container-topo{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.container-topo a{
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.container-links .links{
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.container-links .links li > a{
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.container-links .links li > a:hover{
+  color: #ddd;
+}
+
+/*banner*/
+.banner{
+  background-image: url('https://wallpapercrafter.com/desktop/223582-code-on.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+.banner .overlay{
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+.banner .overlay .container{
+  color: #fff;
+  padding: 8rem 0;
+}
+.banner .overlay .container h1{
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.banner .overlay .container p{
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.banner .overlay .container a{
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: #fff;
+  color: #222;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.banner .overlay .container a:hover{
+  background-color: #ffc107;
+  color: #222;
+}
+
+@media(min-width: 768px){
+  .banner .overlay .container{
+    padding: 8rem 0;
+  }
+  .banner .overlay .container h1{
+    font-size: 4rem;
+  }
+  .banner .overlay .container p{
+    font-size: 1.4rem;
+  }
+  .banner .overlay .container a{
+    font-size: 1.4rem;
+  }
+}
+
+/*sections*/
+.servicos .container{
+  padding: 2rem 0;
+}
+
+.servicos .container h2{
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.passatempos .container{
+  padding: 2rem 0;
+}
+
+.passatempos .container h2{
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.viagens .container{
+  padding: 2rem 0;
+}
+
+.viagens .container h2{
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+@media(min-width: 768px){
+  .servicos .container{
+    padding: 4rem 0 2rem 0;
+  }
+  .servicos .container h2{
+    font-size: 4em;
+  }
+  .passatempos .container{
+    padding: 4rem 0 2rem 0;
+  }
+  .passatempos .container h2{
+    font-size: 4em;
+  }
+  .viagens .container{
+    padding: 4rem 0 2rem 0;
+  }
+  .viagens .container h2{
+    font-size: 4em;
+  }
+}
+
+/*cards*/
+.card-servicos{
+  background-color: #ffc107;
+  border-radius: 1rem;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding: 1rem;
+}
+.card-servicos i{
+  font-size: 2rem;
+  margin: 1rem;
+}
+.card-servicos h3{
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 1rem;
+}
+.card-servicos p{
+  font-size: 1.2rem;
+  margin: 1rem;
+}
+.card-servicos button{
+  background-color: #303341;
+  color: #fff;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  display: block;
+  padding: 1rem 2rem;
+  transition: background-color 0.3s ease;
+}
+.card-servicos button:hover{
+  background-color: #222;  
+}
+
+.card-passatempos{
+  background-color: #2196f3;
+  border-radius: 1rem;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+  color: #fff;
+  overflow: hidden;
+  padding: 1rem;
+}
+.card-passatempos i{
+  font-size: 2rem;
+  margin: 1rem;
+}
+.card-passatempos h3{
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 1rem;
+}
+.card-passatempos p{
+  font-size: 1.2rem;
+  margin: 1rem;
+}
+.card-passatempos button{
+  background-color: #303341;
+  color: #fff;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  display: block;
+  padding: 1rem 2rem;
+  transition: background-color 0.3s ease;
+}
+
+.card-passatempos button:hover{
+  background-color: #222;  
+}
+.card-viagens{
+  background-color: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.card-viagens button{
+  background-color: #ffc107;
+  color: #222;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  display: block;
+  padding: 1rem 2rem;
+  transition: background-color 0.3s ease;
+}
+
+.card-viagens button:hover{
+  background-color: #ffc107;
+}
+
+.card-viagens img{
+  width: 100%;
+  height: auto;
+}
+
+.card-viagens h3{
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 1rem;
+}
+
+.card-viagens p{
+  font-size: 1.2rem;
+  margin: 1rem;
+}
+
+.card-viagens .btn{
+  display: block;
+  margin: 1rem;
+}
+
+@media(min-width: 768px){
+  .card-servicos{
+    min-height: 200px;
+    max-height: 280px;
+  }
+  .card-servicos button{
+    font-size: 1.2rem;
+    margin-left: 1rem;
+    padding: 1rem 2rem;
+  }
+  .card-servicos i{
+    font-size: 2rem;
+    margin: 1rem;
+  }
+  .card-servicos h3{
+    font-size: 1.6rem;
+  }
+  .card-servicos p{
+    font-size: 1.4rem;
+  }
+  .card-viagens img{
+    height: 200px;
+  }
+}
+/*modal*/
+.modal{
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.modal-overlay{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.modal-content{
+  background-color: #fff;
+  border-radius: 1rem;
+  padding: 2rem;
+  width: 100%;
+  max-width: 800px;
+}
+
+.close{
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: #fff;
+  border: none;
+  border-radius: 50%;
+  color: #222;
+  font-size: 2rem;
+  cursor: pointer;
+  height: 2rem;
+  width: 2rem;
+  transition: color 0.3s ease;
+}
+
+.close:hover{
+  background-color: #ffc107;
+}
+
+.modal-body{
+  margin-top: 2rem;
+}
+
+@media(min-width: 768px){
+  .modal-content{
+    width: 80%;
+  }
+}
+
+/*footer*/
+.footer{
+  background-color: #222;
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+}
+
+.footer p{
+  font-size: 1.2rem;
+}
+
+@media(min-width: 768px){
+  .footer p{
+    font-size: 1.4rem;
+  }
+}
