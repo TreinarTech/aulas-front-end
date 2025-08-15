@@ -6,9 +6,9 @@ const albuns = [
         description: 'Férias no Rio de Janeiro',
         date: '10/08/2025',
         photos: [
-            'https://via.placeholder.com/150',
-            'https://via.placeholder.com/150',
-            'https://via.placeholder.com/150'
+            'https://wallpapers.com/images/featured/rio-de-janeiro-d8f020n7kiyvc721.jpg',
+            'https://wallpapers.com/images/featured/rio-de-janeiro-d8f020n7kiyvc721.jpg',
+            'https://wallpapers.com/images/featured/rio-de-janeiro-d8f020n7kiyvc721.jpg'
         ]
     },
     {
@@ -26,6 +26,9 @@ const albuns = [
 
 // seleciona o theme
 const theme = document.getElementById('theme');
+if (!theme) {
+  throw new Error('Elemento com id "theme" não encontrado no documento. Verifique o index.html.');
+}
 
 //Insere um elemento cabeçalho no theme
 const header = document.createElement('header');
@@ -179,7 +182,7 @@ modal.innerHTML = `
   </div>
 `;
 
-// delega clique nos cards para abrir modal com o álbum correto
+// modal de fotos dos albuns 
 sectionViagens.addEventListener('click', (e) => {
   const btn = e.target.closest('.btn-open');
   if (!btn) return;
@@ -193,11 +196,66 @@ sectionViagens.addEventListener('click', (e) => {
     <p>${album.description}</p>
     <p>Data da postagem: ${album.date}</p>
     <div class="gallery">
-      ${album.photos.map(src => `<img src="${src}" alt="${album.title}">`).join('')}
+      ${album.photos.map((src, i) => `
+        <div class="gallery-item">
+          <img src="${src}" alt="${album.title}" data-index="${i}" />
+          <i class="fas fa-search-plus zoom"></i>
+        </div>
+      `).join('')}
     </div>
   `;
 
+  // guarda o índice do álbum atualmente aberto no próprio modal
+  modal.dataset.albumIndex = String(index);
+
   modal.style.display = 'block';
+});
+
+modal.addEventListener('click', (e) => {
+  const img = e.target.closest('img');
+  if (!img) return;
+  // recupera o índice do álbum salvo quando o modal foi aberto
+  const albumIndex = Number(modal.dataset.albumIndex);
+  const album = albuns[albumIndex];
+  if (!album) return;
+
+  const item = img.closest('.gallery-item');
+  if (!item) return;
+  const zoomIcon = img.nextElementSibling;
+
+  const isExpanded = item.classList.contains('expanded');
+
+  // se for expandir, recolhe os demais primeiro
+  if (!isExpanded) {
+    const allItems = modal.querySelectorAll('.gallery-item.expanded');
+    allItems.forEach((it) => {
+      it.classList.remove('expanded');
+      const itImg = it.querySelector('img');
+      const itIcon = it.querySelector('.zoom');
+      if (itImg) itImg.classList.remove('zoomed');
+      if (itIcon) {
+        itIcon.classList.remove('fa-minus');
+        itIcon.classList.add('fa-search-plus');
+      }
+    });
+  }
+
+  // alterna somente o item clicado
+  if (isExpanded) {
+    item.classList.remove('expanded');
+    img.classList.remove('zoomed');
+    if (zoomIcon) {
+      zoomIcon.classList.remove('fa-minus');
+      zoomIcon.classList.add('fa-search-plus');
+    }
+  } else {
+    item.classList.add('expanded');
+    img.classList.add('zoomed');
+    if (zoomIcon) {
+      zoomIcon.classList.remove('fa-search-plus');
+      zoomIcon.classList.add('fa-minus');
+    }
+  }
 });
 
 // fecha modal ao clicar no X ou fora do conteúdo

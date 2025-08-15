@@ -410,6 +410,7 @@ audio, canvas, iframe, video {
   padding: 2rem;
   width: 100%;
   max-width: 800px;
+  overflow: hidden; /* impede conteúdo expandido de transbordar visualmente */
 }
 
 .close{
@@ -434,6 +435,60 @@ audio, canvas, iframe, video {
 .modal-body{
   margin-top: 2rem;
 }
+.modal-body .gallery{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  min-width: 0; /* evita overflow em layouts flex */
+}
+.modal-body .gallery .gallery-item{
+  position: relative;
+  flex: 0 0 50%;
+  min-width: 0; /* permite encolher dentro do modal */
+}
+@media(min-width: 768px){
+  .modal-body .gallery .gallery-item{
+    flex: 0 0 20%;
+  }
+}
+.modal-body .gallery .gallery-item img{
+  width: 100%;
+  height: auto;
+}
+/* zoom icon default: canto inferior direito, discreto */
+.modal-body .gallery .gallery-item .zoom{
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  color: #fff;
+  font-size: 1.25rem;
+  cursor: pointer;
+  background: rgba(0,0,0,0.4);
+  border-radius: 999px;
+  padding: 6px;
+}
+
+/* estado expandido: item ocupa a largura do modal e o ícone vai ao centro */
+.modal-body .gallery .gallery-item.expanded{
+  flex: 0 0 100%;
+}
+.modal-body .gallery .gallery-item.expanded img{
+  width: 100%;
+  height: auto;
+  max-height: 70vh;
+  object-fit: contain;
+  display: block;
+}
+.modal-body .gallery .gallery-item.expanded .zoom{
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  background: rgba(0,0,0,0.55);
+}
+
 
 @media(min-width: 768px){
   .modal-content{
