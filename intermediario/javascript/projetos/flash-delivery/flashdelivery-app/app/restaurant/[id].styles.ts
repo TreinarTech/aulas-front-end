@@ -1,0 +1,35 @@
+import { StyleSheet } from 'react-native';
+
+const styles = StyleSheet.create({
+  screen: { flex: 1, backgroundColor: '#ffffff' },
+  headerImageBox: { height: 220, width: '100%' },
+  headerImage: { width: '100%', height: '100%' },
+  headerActions: { position: 'absolute', top: 16, left: 16, right: 16, flexDirection: 'row', justifyContent: 'space-between' },
+  circleBtnTranslucent: { width: 40, height: 40, borderRadius: 20, alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgba(255,255,255,0.9)' },
+  body: { padding: 16, gap: 8 },
+  titleRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
+  title: { color: '#0b2135', fontSize: 20, fontWeight: '800', flex: 1 },
+  rateBadge: { flexDirection: 'row', alignItems: 'center', gap: 4, backgroundColor: '#fff3cd', paddingHorizontal: 6, paddingVertical: 2, borderRadius: 999 },
+  rateText: { color: '#664d03', fontWeight: '700', fontSize: 12 },
+  muted: { color: '#6c757d' },
+  sectionTitle: { color: '#0b2135', fontSize: 18, fontWeight: '700', marginTop: 8, marginBottom: 4 },
+  separator: { height: 1, backgroundColor: '#e9ecef', marginVertical: 8 },
+  menuRow: { flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'space-between' },
+  menuLeft: { flex: 1, paddingRight: 12 },
+  menuTitleRow: { flexDirection: 'row', alignItems: 'center', gap: 8 },
+  menuTitle: { color: '#0b2135', fontWeight: '600', fontSize: 16 },
+  menuBadge: { backgroundColor: '#e9ecef', borderRadius: 999, paddingHorizontal: 8, paddingVertical: 2 },
+  menuBadgeText: { color: '#0b2135', fontSize: 12 },
+  menuDesc: { color: '#6c757d' },
+  menuPrice: { color: '#0b2135', fontWeight: '700', marginTop: 4 },
+  menuRight: { alignItems: 'center' },
+  qtyRow: { flexDirection: 'row', alignItems: 'center', gap: 8 },
+  qtyBtn: { width: 32, height: 32, borderRadius: 16, backgroundColor: '#ffffff', borderWidth: 1, borderColor: '#e9ecef', alignItems: 'center', justifyContent: 'center' },
+  qtyBtnDisabled: { opacity: 0.5 },
+  qtyText: { color: '#0b2135', width: 24, textAlign: 'center' },
+  cartBar: { position: 'absolute', left: 16, right: 16, bottom: 24, backgroundColor: '#0d6efd', borderRadius: 999, padding: 16, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
+  cartBarTextBold: { color: '#ffffff', fontWeight: '700' },
+  cartBarTextStrong: { color: '#ffffff', fontWeight: '800' },
+});
+
+export default styles;

@@ -1,0 +1,35 @@
+import { StyleSheet } from 'react-native';
+
+const styles = StyleSheet.create({
+  screen: { flex: 1, backgroundColor: '#ffffff' },
+  headerImageBox: { width: '100%', height: 200, backgroundColor: '#e9ecef' },
+  headerImage: { width: '100%', height: '100%' },
+  headerActions: { position: 'absolute', top: 12, left: 12, right: 12, flexDirection: 'row', justifyContent: 'space-between' },
+  circleBtnTranslucent: { backgroundColor: 'rgba(255,255,255,0.9)', borderRadius: 999, padding: 10, borderWidth: 1, borderColor: '#e9ecef' },
+  body: { padding: 16, gap: 8 },
+  titleRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
+  title: { color: '#0b2135', fontWeight: '800', fontSize: 18, flex: 1 },
+  rateBadge: { flexDirection: 'row', alignItems: 'center', gap: 4, backgroundColor: '#fff3cd', paddingHorizontal: 6, paddingVertical: 2, borderRadius: 999 },
+  rateText: { color: '#664d03', fontWeight: '700', fontSize: 12 },
+  muted: { color: '#6c757d' },
+  sectionTitle: { marginTop: 10, color: '#0b2135', fontWeight: '800', fontSize: 16 },
+  separator: { height: 12 },
+  menuRow: { flexDirection: 'row', gap: 12, paddingVertical: 8 },
+  menuLeft: { flex: 1, gap: 4 },
+  menuTitleRow: { flexDirection: 'row', alignItems: 'center', gap: 6 },
+  menuTitle: { color: '#0b2135', fontWeight: '700', fontSize: 16, flex: 1 },
+  menuBadge: { backgroundColor: '#e9ecef', paddingHorizontal: 6, paddingVertical: 2, borderRadius: 8 },
+  menuBadgeText: { color: '#0b2135', fontWeight: '700', fontSize: 12 },
+  menuDesc: { color: '#6c757d' },
+  menuPrice: { color: '#0b2135', fontWeight: '700' },
+  menuRight: { justifyContent: 'center' },
+  qtyRow: { flexDirection: 'row', alignItems: 'center', gap: 8 },
+  qtyBtn: { backgroundColor: '#e9ecef', borderRadius: 999, paddingHorizontal: 10, paddingVertical: 6 },
+  qtyBtnDisabled: { opacity: 0.5 },
+  qtyText: { minWidth: 18, textAlign: 'center', color: '#0b2135', fontWeight: '700' },
+  cartBar: { position: 'absolute', left: 12, right: 12, bottom: 12, backgroundColor: '#0d6efd', paddingVertical: 12, paddingHorizontal: 16, borderRadius: 999, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
+  cartBarTextBold: { color: '#fff', fontWeight: '700' },
+  cartBarTextStrong: { color: '#fff', fontWeight: '800' },
+});
+
+export default styles;

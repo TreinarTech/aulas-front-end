@@ -1,0 +1,91 @@
+:root{--fd-primary:#0d6efd;--fd-dark:#0b1437;--fd-accent:#ffd166}
+body{background:#f8f9fa; -webkit-tap-highlight-color:transparent; touch-action:manipulation; overscroll-behavior-y:contain}
+.navbar-brand i{color:var(--fd-accent)}
+.card-product{transition:transform .15s ease, box-shadow .15s ease}
+.card-product:hover{transform:translateY(-2px); box-shadow:0 .5rem 1rem rgba(0,0,0,.08)}
+.badge-status{font-weight:600}
+.badge-status[data-status="criado"]{background:#6c757d}
+.badge-status[data-status="confirmado"]{background:#0d6efd}
+.badge-status[data-status="enviado_cozinha"]{background:#20c997}
+.badge-status[data-status="em_preparo"]{background:#fd7e14}
+.badge-status[data-status="pronto"]{background:#198754}
+.badge-status[data-status="em_entrega"]{background:#0dcaf0; color:#0b2135}
+.badge-status[data-status="entregue"]{background:#6f42c1}
+.badge-status[data-status="cancelado"]{background:#dc3545}
+.item-qty{min-width:100px}
+.empty-state{border:2px dashed #dee2e6; border-radius:.5rem; padding:2rem; text-align:center; color:#6c757d}
+/* Layout helpers moved from inline styles */
+.fd-search-group{min-width:280px}
+.fd-toast-container{z-index:1080; padding-bottom:calc(env(safe-area-inset-bottom) + 1rem)}
+
+/* Improve tap targets on mobile */
+.btn, .form-control, .form-select { min-height:44px }
+.btn-group .btn { min-height: auto }
+
+/* On touch devices, avoid hover elevation jitter */
+@media (hover:none) and (pointer:coarse){
+  .card-product:hover{transform:none; box-shadow:none}
+}
+
+/* Sidebar */
+.fd-sidebar .btn{ text-align:left }
+
+/* Horizontal scroll container for categories */
+.fd-hscroll{ display:flex; overflow:auto; padding-bottom:.25rem }
+.fd-hscroll::-webkit-scrollbar{ height:8px }
+.fd-hscroll::-webkit-scrollbar-thumb{ background:#dee2e6; border-radius:8px }
+.fd-chip{ flex:0 0 auto; border:1px solid #dee2e6; border-radius:999px; padding:.5rem .75rem; background:#fff; display:flex; align-items:center; gap:.5rem }
+.fd-chip i{ color:var(--fd-primary) }
+
+/* Bottom navigation (mobile) */
+.fd-bottom-nav{ position:fixed; left:0; right:0; bottom:0; background:#fff; border-top:1px solid #dee2e6; display:flex; justify-content:space-around; padding:.25rem env(safe-area-inset-right) calc(env(safe-area-inset-bottom) + .25rem) env(safe-area-inset-left); z-index:1030 }
+.fd-bottom-nav .fd-tab{ background:none; border:0; padding:.25rem .5rem; color:#0b2135; display:flex; flex-direction:column; align-items:center; gap:.125rem; text-decoration:none; font-size:.85rem }
+.fd-bottom-nav .fd-tab i{ font-size:1.1rem }
+.fd-bottom-nav .fd-tab.active, .fd-bottom-nav .fd-tab:focus{ color:var(--fd-primary) }
+
+/* Utilities */
+.mobile-only{ display:none }
+.desktop-only{ display:block }
+.fd-qty-group{ max-width:140px }
+.fd-map{ height:360px; width:100%; background:#f8f9fa }
+@media (max-width: 767.98px){
+  .mobile-only{ display:flex }
+  .desktop-only{ display:none }
+  body{ padding-bottom:60px } /* space for bottom nav */
+}
+
+/* Mobile header search pill */
+.fd-search-pill .form-control{ border:0; background:#f3f4f6; border-radius:9999px; padding:.75rem 1rem }
+.fd-search-pill .input-group-text{ background:#f3f4f6; border:0; border-top-left-radius:9999px; border-bottom-left-radius:9999px }
+.fd-search-pill .form-control:focus{ box-shadow:0 0 0 .25rem rgba(13,110,253,.1) }
+
+/* Address row */
+.fd-address-row{ font-size:.9rem }
+.fd-address-row .fd-addr-select{ color:#0d6efd; font-weight:600 }
+
+/* Category circles (scoped) */
+#categories.fd-hscroll{ gap:1rem }
+.fd-circles .fd-chip{ display:flex; flex-direction:column; align-items:center; gap:.5rem; background:#fff; border:0; padding:.25rem; box-shadow:none }
+.fd-circles .fd-chip i{ background:#f3f4f6; width:56px; height:56px; display:grid; place-items:center; border-radius:50%; color:#0d6efd; font-size:1.25rem }
+.fd-circles .fd-chip span{ font-size:.85rem; color:#0b2135 }
+
+/* Section headers */
+.fd-section-title{ display:flex; align-items:center; justify-content:space-between; margin-bottom:.75rem }
+.fd-see-all{ font-size:.9rem }
+
+/* Tabs small (Nearby, Sales, etc.) */
+.fd-tabs .nav-link{ color:#6c757d; padding:.25rem .5rem; border-radius:9999px }
+.fd-tabs .nav-link.active{ background:#e7f1ff; color:#0d6efd }
+
+/* Cards polish */
+.card{ border:0; border-radius:1rem; box-shadow:0 4px 16px rgba(0,0,0,.06) }
+.card-img-top{ border-top-left-radius:1rem; border-top-right-radius:1rem; object-fit:cover; height:140px }
+
+/* Promo banners */
+.fd-banner{ position:relative; flex:0 0 auto; width:280px; height:140px; border-radius:1rem; overflow:hidden; background:#e9ecef }
+.fd-banner img{ width:100%; height:100%; object-fit:cover; display:block }
+.fd-banner .fd-badge{ position:absolute; left:.5rem; top:.5rem; background:#fff; color:#0b2135; border-radius:999px; padding:.25rem .5rem; font-weight:600; font-size:.8rem }
+
+/* Coupons */
+.fd-coupon{ flex:0 0 auto; display:flex; align-items:center; gap:.5rem; background:#fff; border:1px dashed #0d6efd; color:#0d6efd; padding:.5rem .75rem; border-radius:9999px; font-weight:600 }
+.fd-coupon small{ color:#0b2135 }
