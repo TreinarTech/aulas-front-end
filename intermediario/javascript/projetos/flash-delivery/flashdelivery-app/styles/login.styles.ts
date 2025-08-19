@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    backgroundColor: '#ffffff',
+    backgroundColor: 'transparent',
   },
   container: {
     flex: 1,
@@ -11,6 +11,8 @@ const styles = StyleSheet.create({
     paddingTop: 32,
     paddingBottom: 24,
     gap: 16,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   brandRow: {
     flexDirection: 'row',
@@ -24,7 +26,7 @@ const styles = StyleSheet.create({
     borderRadius: 22,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#0d6efd',
+    backgroundColor: '#E11D48',
   },
   brandText: {
     fontSize: 20,
@@ -57,23 +59,25 @@ const styles = StyleSheet.create({
   field: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#ffffff',
+    backgroundColor: 'rgba(0,0,0,0.25)',
     borderWidth: 1,
-    borderColor: '#e9ecef',
+    borderColor: 'rgba(255,255,255,0.35)',
     borderRadius: 12,
     padding: 12,
     gap: 10,
+    width: '100%',
   },
   input: {
     flex: 1,
-    color: '#0b2135',
+    color: '#fff',
   },
   primaryButton: {
     marginTop: 6,
-    backgroundColor: '#0d6efd',
+    backgroundColor: '#E11D48',
     borderRadius: 9999,
     padding: 14,
     alignItems: 'center',
+    width: '100%',
   },
   primaryButtonText: {
     color: '#fff',

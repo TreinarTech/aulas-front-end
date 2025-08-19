@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { Ionicons } from '@expo/vector-icons';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { MENU, RESTAURANTS, CATEGORIES } from '@/data/mock';
@@ -11,6 +11,13 @@ export default function RestaurantScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const restaurant = useMemo(() => RESTAURANTS.find((r) => r.id === id), [id]);
   const menu = useMemo(() => (id ? MENU[id] || [] : []), [id]);
+  const cats = useMemo(() => {
+    const set = new Set<string>();
+    menu.forEach((m) => set.add(m.category));
+    return Array.from(set);
+  }, [menu]);
+  const [activeCat, setActiveCat] = useState<string | 'all'>('all');
+  const visibleMenu = useMemo(() => (activeCat === 'all' ? menu : menu.filter((m) => m.category === activeCat)), [menu, activeCat]);
   const { items, add, remove } = useCart();
 
   if (!restaurant) return null;
@@ -33,6 +40,9 @@ export default function RestaurantScreen() {
             <Ionicons name="heart-outline" size={20} color="#0b2135" />
           </TouchableOpacity>
         </View>
+        <View style={styles.logoWrap}>
+          <Image source={{ uri: restaurant.logo }} style={styles.logoImg} />
+        </View>
       </View>
 
       <View style={styles.body}>
@@ -48,8 +58,18 @@ export default function RestaurantScreen() {
         </Text>
 
         <Text style={styles.sectionTitle}>Cardápio</Text>
+        <View style={styles.tabsRow}>
+          <TouchableOpacity onPress={() => setActiveCat('all')} style={[styles.tab, activeCat === 'all' && styles.tabActive]}>
+            <Text style={[styles.tabText, activeCat === 'all' && styles.tabTextActive]}>Tudo</Text>
+          </TouchableOpacity>
+          {cats.map((c) => (
+            <TouchableOpacity key={c} onPress={() => setActiveCat(c)} style={[styles.tab, activeCat === c && styles.tabActive]}>
+              <Text style={[styles.tabText, activeCat === c && styles.tabTextActive]}>{c}</Text>
+            </TouchableOpacity>
+          ))}
+        </View>
         <FlatList
-          data={menu}
+          data={visibleMenu}
           keyExtractor={(i) => i.id}
           scrollEnabled={false}
           ItemSeparatorComponent={() => <View style={styles.separator} />}
@@ -65,7 +85,7 @@ export default function RestaurantScreen() {
                   ) : null}
                 </View>
                 <Text style={styles.menuDesc} numberOfLines={2}>{item.desc}</Text>
-                <Text style={styles.menuPrice}>R$ {item.price.toFixed(2)}</Text>
+                <Text style={styles.menuPrice}>R$ {item.price.toFixed(2)}{item.rating ? `  •  ⭐ ${item.rating.toFixed(1)}` : ''}</Text>
               </View>
               <View style={styles.menuRight}>
                 <View style={styles.qtyRow}>

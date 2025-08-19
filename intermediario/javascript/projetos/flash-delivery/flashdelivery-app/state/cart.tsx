@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, { createContext, useContext, useCallback, useEffect, useMemo, useState } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export type CartItem = {
@@ -10,6 +10,18 @@ export type CartItem = {
 };
 
 const STORAGE_KEY = 'flash.cart.v1';
+const METRICS_KEY = 'flash.metrics.restaurantCounts.v1';
+
+type RestCount = Record<string, number>;
+
+async function incrementRestaurantCount(restaurantId: string, delta: number) {
+  try {
+    const raw = await AsyncStorage.getItem(METRICS_KEY);
+    const obj: RestCount = raw ? JSON.parse(raw) : {};
+    obj[restaurantId] = Math.max(0, (obj[restaurantId] || 0) + delta);
+    await AsyncStorage.setItem(METRICS_KEY, JSON.stringify(obj));
+  } catch {}
+}
 
 type CartContextType = {
   items: CartItem[];
@@ -38,26 +50,32 @@ export const CartProvider: React.FC<React.PropsWithChildren> = ({ children }) =>
     AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(items)).catch(() => {});
   }, [items]);
 
-  const add: CartContextType['add'] = (restaurantId, itemId, name, price, delta = 1) => {
+  const add: CartContextType['add'] = useCallback((restaurantId, itemId, name, price, delta = 1) => {
     setItems((prev) => {
       const idx = prev.findIndex((it) => it.restaurantId === restaurantId && it.itemId === itemId);
       if (idx >= 0) {
         const next = [...prev];
         next[idx] = { ...next[idx], qty: next[idx].qty + delta };
         if (next[idx].qty <= 0) return next.filter((_, i) => i !== idx);
+        // fire-and-forget: update metrics when increasing qty
+        if (delta > 0) incrementRestaurantCount(restaurantId, delta);
         return next;
       }
+      // new item added
+      if (delta > 0) incrementRestaurantCount(restaurantId, delta);
       return [...prev, { restaurantId, itemId, name, price, qty: delta }];
     });
-  };
+  }, []);
 
-  const remove: CartContextType['remove'] = (restaurantId, itemId, delta = 1) => {
+  const remove: CartContextType['remove'] = useCallback((restaurantId, itemId, delta = 1) => {
     add(restaurantId, itemId, '', 0, -delta);
-  };
+  }, [add]);
 
-  const clear = () => setItems([]);
+  const clear = useCallback(() => setItems([]), []);
 
-  return <CartContext.Provider value={{ items, add, remove, clear }}>{children}</CartContext.Provider>;
+  const value = useMemo(() => ({ items, add, remove, clear }), [items, add, remove, clear]);
+
+  return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 };
 
 export const useCart = () => {

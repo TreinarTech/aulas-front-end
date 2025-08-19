@@ -1,7 +1,16 @@
-import React, { createContext, useContext, useEffect, useMemo, useState } from 'react';
+import React, { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { USERS } from '@/data/mock';
 
-export type User = { id: string; name: string; email: string } | null;
+export type User = {
+  id: string;
+  name: string;
+  email: string;
+  avatar?: string;
+  address?: string;
+  phone?: string;
+  status?: 'active' | 'blocked' | 'pending';
+} | null;
 
 type AuthContextType = {
   user: User;
@@ -34,16 +43,20 @@ export const AuthProvider: React.FC<React.PropsWithChildren> = ({ children }) =>
     AsyncStorage.setItem('flash.auth.v1', JSON.stringify(user)).catch(() => {});
   }, [user, loading]);
 
-  const signIn = async (email: string, password: string) => {
-    // Mocked auth: accept any non-empty credentials
+
+  const signIn = useCallback(async (email: string, password: string) => {
     await new Promise((r) => setTimeout(r, 400));
-    if (!email || !password) throw new Error('Credenciais inválidas');
-    setUser({ id: 'u1', name: email.split('@')[0] || 'Cliente', email });
-  };
+    const e = email.trim().toLowerCase();
+    const u = USERS.find((x) => x.email.toLowerCase() === e);
+    if (!u || u.password !== password) throw new Error('Email ou senha inválidos');
+    if (u.status === 'blocked') throw new Error('Conta bloqueada');
+    const { password: _pw, ...safeUser } = u;
+    setUser(safeUser);
+  }, []);
 
-  const signOut = () => setUser(null);
+  const signOut = useCallback(() => setUser(null), []);
 
-  const value = useMemo(() => ({ user, signIn, signOut, loading }), [user, loading]);
+  const value = useMemo(() => ({ user, signIn, signOut, loading }), [user, loading, signIn, signOut]);
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
 
